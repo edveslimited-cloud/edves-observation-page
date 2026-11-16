@@ -59,7 +59,9 @@ h2.t{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.15;mar
 .cols p{color:var(--mute)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .two p{color:var(--mute);font-size:18px;max-width:44ch}
-
+.hub-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
+.hub-list li{position:relative;padding-left:34px;font-size:18px;line-height:1.5;color:var(--ink)}
+.hub-list li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
 /* Images: a tinted icon shows first, a real photo covers it when present */
 .ph{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--tint);margin:0 0 18px;display:grid;place-items:center;color:var(--blue)}
 .ph svg{width:52px;height:52px;opacity:.45}
@@ -167,7 +169,12 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 <section>
  <div class="wrap two">
   <h2 class="t" style="margin:0">From feedback to better teaching.</h2>
-  <div><figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h6a3 3 0 013 3v12a2 2 0 00-2-2H4zM20 5h-6a3 3 0 00-3 3v12a2 2 0 012-2h7z"/></svg><img src="images/pedagogy.jpg" alt="A teacher planning a lesson with a colleague" loading="lazy" onerror="this.remove()"></figure><p>The EDVES Pedagogy Hub gives teachers somewhere to turn once they have their feedback. <!-- Replace with the real Pedagogy Hub description --></p></div>
+  <div><figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h6a3 3 0 013 3v12a2 2 0 00-2-2H4zM20 5h-6a3 3 0 00-3 3v12a2 2 0 012-2h7z"/></svg><img src="images/pedagogy.jpg" alt="A teacher planning a lesson with a colleague" loading="lazy" onerror="this.remove()"></figure><p>The EDVES Pedagogy Hub is a newly refined instructional guide that helps teachers deliver lessons to students at every level of ability and learning need. Once their feedback arrives, teachers can choose from a growing library of teaching patterns built into the platform.</p>
+<ul class="hub-list">
+ <li><strong>Real-time adaptation</strong> of lesson flow and difficulty</li>
+ <li><strong>Auto-mapping</strong> to Common Core, NGSS and state standards</li>
+ <li><strong>Equity-aware</strong> support for subgroup-targeted interventions</li>
+</ul></div>
  </div>
 </section>
 
