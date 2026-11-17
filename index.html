@@ -30,9 +30,9 @@ header .wrap{display:flex;justify-content:space-between;align-items:center}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 h1{font-size:clamp(36px,5.2vw,58px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
 .lead{margin:22px 0 32px;font-size:19px;color:var(--mute);max-width:46ch}
-.note{margin-top:20px;font-size:clamp(30px,2.6vw,34px);font-weight:600;line-height:1.3;letter-spacing:-.01em;color:var(--ink)}
+.note{margin-top:20px;font-size:clamp(22px,2.6vw,30px);font-weight:600;line-height:1.3;letter-spacing:-.01em;color:var(--ink)}
 
-/* The one animated moment: a lesson being scored, then feedback sent */
+/* The animated moment: a lesson being scored, then feedback sent */
 .panel{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--white);box-shadow:0 20px 50px rgba(12,94,158,.10)}
 .panel h2{font-size:15px;font-weight:600;margin-bottom:4px}
 .panel .sub{font-size:13px;color:var(--mute);margin-bottom:20px}
@@ -48,6 +48,7 @@ h1{font-size:clamp(36px,5.2vw,58px);line-height:1.08;letter-spacing:-.03em;font-
 .sent{display:flex;align-items:center;gap:10px;margin-top:22px;padding:12px 14px;border-radius:10px;background:var(--tint);color:var(--blue-d);font-size:14px;font-weight:600;opacity:0;transform:translateY(8px);animation:pop .5s ease 4.2s forwards}
 .sent svg{flex:none}
 @keyframes pop{to{opacity:1;transform:none}}
+
 /* Headline animation */
 h1 .w{display:inline-block;opacity:0;transform:translateY(14px);animation:wordin .6s cubic-bezier(.2,.7,.2,1) forwards}
 h1 .w:nth-child(1){animation-delay:.1s}
@@ -61,6 +62,12 @@ h1 .w:nth-child(6){animation-delay:.75s}
 .u::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:4px;border-radius:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;animation:draw .8s ease 1.3s forwards}
 @keyframes wordin{to{opacity:1;transform:none}}
 @keyframes draw{to{transform:scaleX(1)}}
+
+/* Pedagogy Hub list */
+.hub-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
+.hub-list li{position:relative;padding-left:34px;font-size:18px;line-height:1.5;color:var(--ink)}
+.hub-list li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
+
 /* Sections */
 section{padding:84px 0}
 .tint{background:var(--tint)}
@@ -71,9 +78,7 @@ h2.t{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.15;mar
 .cols p{color:var(--mute)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .two p{color:var(--mute);font-size:18px;max-width:44ch}
-.hub-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
-.hub-list li{position:relative;padding-left:34px;font-size:18px;line-height:1.5;color:var(--ink)}
-.hub-list li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
+
 /* Images: a tinted icon shows first, a real photo covers it when present */
 .ph{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--tint);margin:0 0 18px;display:grid;place-items:center;color:var(--blue)}
 .ph svg{width:52px;height:52px;opacity:.45}
@@ -83,22 +88,17 @@ h2.t{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.15;mar
 .band .ph{aspect-ratio:21/9;margin:0;border-radius:16px}
 .band .ph svg{width:84px;height:84px}
 
-/* Video */
-.video{padding:0 0 96px}
-.video h2.t{text-align:center;margin:0 auto 32px}
-.vid{position:relative;display:block;width:100%;max-width:880px;margin:0 auto;padding:0;border:0;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:var(--blue-d);box-shadow:0 24px 60px rgba(12,94,158,.18)}
+/* Video (MP4) */
+.vid{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--blue-d);margin:0 0 28px;box-shadow:0 14px 36px rgba(12,94,158,.15)}
 .vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s ease}
 .vid:hover img{transform:scale(1.03)}
+.vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000}
 .vbtn{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:none;cursor:pointer}
-.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--white);display:grid;place-items:center;color:var(--blue)}
+.vbtn:focus-visible{outline:3px solid #7fb6e0;outline-offset:4px}
+.play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--white);display:grid;place-items:center;color:var(--blue)}
 .play::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--white);animation:ring 2.4s ease-out infinite}
 .play svg{margin-left:4px}
 @keyframes ring{from{transform:scale(1);opacity:.8}to{transform:scale(1.7);opacity:0}}
-.vbtn:focus-visible{outline:3px solid #7fb6e0;outline-offset:4px}
-
-.hero .vid{margin:0 0 28px;max-width:none;border-radius:12px;box-shadow:0 14px 36px rgba(12,94,158,.15)}
-.hero .play{width:64px;height:64px;margin:-32px 0 0 -32px}
 
 /* Final call */
 .cta{background:var(--blue);color:var(--white);text-align:center;padding:88px 0}
@@ -106,7 +106,7 @@ h2.t{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.15;mar
 .cta p{opacity:.88;margin:0 auto 32px;max-width:48ch}
 footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 
-/* Reveal on scroll, one gentle step only for the three audiences */
+/* Reveal on scroll */
 .rise{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
 .rise.in{opacity:1;transform:none}
 
@@ -114,7 +114,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .hero .wrap,.two{grid-template-columns:1fr;gap:40px}
  .cols{grid-template-columns:1fr;gap:28px}
  section{padding:60px 0}
- .hero{padding:32px 0 16px}
+ .hero{padding:32px 0 24px}
  .btn.lg{width:100%;text-align:center}
  .band{padding-bottom:60px}.band .ph{aspect-ratio:4/3}
 }
@@ -123,7 +123,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .fill{width:var(--w)}
  .row:nth-of-type(1) .fill{--w:85%}.row:nth-of-type(2) .fill{--w:70%}.row:nth-of-type(3) .fill{--w:92%}.row:nth-of-type(4) .fill{--w:64%}
  .sent,.rise{opacity:1;transform:none}
-  h1 .w{opacity:1;transform:none}.u::after{animation:none;transform:scaleX(1)}
+ h1 .w{opacity:1;transform:none}.u::after{animation:none;transform:scaleX(1)}
 }
 </style>
 </head>
@@ -142,11 +142,14 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
   <div>
    <h1><span class="w">Every</span> <span class="w b">classroom</span> <span class="w">observed</span> <span class="w">by</span> <span class="w">the</span> <span class="w b u">same standard.</span></h1>
    <p class="lead">See how EDVES Classroom Observation works on your own rubric and learning standards. Observers score the lesson, and teachers get feedback straight away.</p>
-   <!-- Replace VIDEO_ID with your YouTube video ID (the part after v= in the link) -->
-   <div class="vid"><button class="vbtn" type="button" data-yt="VIDEO_ID" aria-label="Play the EDVES Classroom Observation video">
-   <img src="images/video-poster.jpg" alt="" loading="lazy" onerror="this.remove()">
-   <span class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-  </button></div>
+
+   <div class="vid">
+    <button class="vbtn" type="button" data-video="video/edves-demo.mp4" aria-label="Play the EDVES Classroom Observation video">
+     <img src="images/video-poster.jpg" alt="" loading="lazy" onerror="this.remove()">
+     <span class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+    </button>
+   </div>
+
    <a class="btn lg" href="DEMO_LINK" target="_blank" rel="noopener">Book a free demo</a>
    <p class="note">Bring your campus rubric.<br>Your observers stay in the lead.</p>
   </div>
@@ -211,10 +214,10 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
 document.querySelectorAll('.rise').forEach((el,i)=>{el.style.transitionDelay=(i*120)+'ms';io.observe(el)});
 document.querySelectorAll('.vbtn').forEach(b=>b.addEventListener('click',()=>{
- const f=document.createElement('iframe');
- f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0';
- f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title='EDVES Classroom Observation video';
- b.parentElement.appendChild(f);b.remove();
+ const v=document.createElement('video');
+ v.src=b.dataset.video;v.controls=true;v.autoplay=true;v.playsInline=true;v.preload='auto';
+ v.poster='images/video-poster.jpg';
+ b.parentElement.appendChild(v);b.remove();
 }));
 </script>
 </body>
