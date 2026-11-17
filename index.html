@@ -27,11 +27,10 @@ header .wrap{display:flex;justify-content:space-between;align-items:center}
 .btn.inv:hover{background:var(--tint)}
 
 /* Hero */
-.hero{padding:56px 0 32px}
+.hero{padding:56px 0 56px}
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 h1{font-size:clamp(36px,5.2vw,58px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
 .lead{margin:22px 0 32px;font-size:19px;color:var(--mute);max-width:46ch}
-.note{margin-top:20px;font-size:clamp(22px,2.6vw,30px);font-weight:600;line-height:1.3;letter-spacing:-.01em;color:var(--ink)}
 
 /* Animated moment: a lesson being scored, then feedback sent */
 .panel{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--white);box-shadow:0 20px 50px rgba(12,94,158,.10)}
@@ -63,16 +62,21 @@ h1 .w:nth-child(6){animation-delay:.75s}
 .u::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:4px;border-radius:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;animation:draw .8s ease 1.3s forwards}
 @keyframes wordin{to{opacity:1;transform:none}}
 @keyframes draw{to{transform:scaleX(1)}}
-/* Note animation */
-.note .ln{display:block;opacity:0;transform:translateY(12px);animation:wordin .7s cubic-bezier(.2,.7,.2,1) forwards}
-.note .ln:nth-child(1){animation-delay:1.2s}
-.note .ln:nth-child(2){animation-delay:1.5s}
-.b{color:var(--blue)}
+
+/* Blue band: note text + classroom image */
+.band{background:var(--blue);padding:64px 0 72px}
+.note{margin:0 0 36px;text-align:center;font-size:clamp(30px,4.4vw,52px);font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--white)}
+.note .ln{display:block}
+.note .b{color:#9fd0f5}
+.js .note .ln{opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .note.in .ln{opacity:1;transform:none}
+.js .note.in .ln:nth-child(2){transition-delay:.3s}
+
 /* Pedagogy Hub list */
 .hub-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
 .hub-list li{position:relative;padding-left:34px;font-size:18px;line-height:1.5;color:var(--ink)}
 .hub-list li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
-.b{color:var(--blue)}
+
 /* Sections */
 section{padding:84px 0}
 .tint{background:var(--tint)}
@@ -89,7 +93,6 @@ h2.t{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.15;mar
 .ph svg{width:52px;height:52px;opacity:.45}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s ease}
 .ph:hover img{transform:scale(1.04)}
-.band{padding:0 0 84px}
 .band .ph{aspect-ratio:21/9;margin:0;border-radius:16px}
 .band .ph svg{width:84px;height:84px}
 
@@ -126,9 +129,9 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .hero .wrap,.two{grid-template-columns:1fr;gap:40px}
  .cols{grid-template-columns:1fr;gap:28px}
  section{padding:60px 0}
- .hero{padding:32px 0 24px}
+ .hero{padding:32px 0 40px}
  .btn.lg{width:100%;text-align:center}
- .band{padding-bottom:60px}.band .ph{aspect-ratio:4/3}
+ .band{padding:48px 0 52px}.band .ph{aspect-ratio:4/3}
 }
 @media(prefers-reduced-motion:reduce){
  *{animation:none!important;transition:none!important}
@@ -136,8 +139,8 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .row:nth-of-type(1) .fill{--w:85%}.row:nth-of-type(2) .fill{--w:70%}.row:nth-of-type(3) .fill{--w:92%}.row:nth-of-type(4) .fill{--w:64%}
  .sent,.rise{opacity:1;transform:none}
  h1 .w{opacity:1;transform:none}.u::after{animation:none;transform:scaleX(1)}
+ .js .note .ln{opacity:1;transform:none}
  .js .reveal{opacity:1;transform:none}.js .reveal img{transform:none}
- .note .ln{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -165,7 +168,6 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
    </div>
 
    <a class="btn lg" href="DEMO_LINK" target="_blank" rel="noopener">Book a free demo</a>
-  <p class="note"><span class="ln">Bring your <span class="b">campus rubric.</span></span><span class="ln">Your <span class="b">observers</span> stay in the lead.</span></p>
   </div>
 
   <div class="panel" aria-label="Example of a lesson being scored against a rubric">
@@ -183,7 +185,12 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  </div>
 </div>
 
-<div class="band"><div class="wrap"><figure class="ph reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg><img src="images/classroom.jpg" alt="Students and a teacher working together in a bright classroom" onerror="this.remove()"></figure></div></div>
+<div class="band">
+ <div class="wrap">
+  <p class="note"><span class="ln">Bring your <span class="b">campus rubric.</span></span><span class="ln">Your <span class="b">observers</span> stay in the lead.</span></p>
+  <figure class="ph reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg><img src="images/classroom.jpg" alt="Students and a teacher working together in a bright classroom" onerror="this.remove()"></figure>
+ </div>
+</div>
 
 <section class="tint">
  <div class="wrap">
@@ -199,7 +206,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 <section>
  <div class="wrap two">
   <div>
-  <h2 class="t" style="margin:0 0 24px">From <span class="b">feedback</span> to better <span class="b">teaching.</span></h2>
+   <h2 class="t" style="margin:0 0 24px">From <span class="b">feedback</span> to better <span class="b">teaching.</span></h2>
    <ul class="hub-list">
     <li><strong>Real-time adaptation</strong> of lesson flow and difficulty</li>
     <li><strong>Auto-mapping</strong> to Common Core, NGSS and state standards</li>
@@ -229,8 +236,8 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.rise').forEach((el,i)=>{el.style.transitionDelay=(i*120)+'ms';io.observe(el)});
 
 const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.05});
-document.querySelectorAll('.reveal').forEach(el=>rv.observe(el));
-setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')),3000);
+document.querySelectorAll('.reveal,.note').forEach(el=>rv.observe(el));
+setTimeout(()=>document.querySelectorAll('.reveal,.note').forEach(el=>el.classList.add('in')),3000);
 
 document.querySelectorAll('.vbtn').forEach(b=>b.addEventListener('click',()=>{
  const v=document.createElement('video');
