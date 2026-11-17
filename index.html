@@ -46,17 +46,21 @@ h1{font-size:clamp(36px,5.2vw,58px);line-height:1.08;letter-spacing:-.03em;font-
 .chip:nth-child(4){animation-delay:1.4s;animation-duration:4.2s}
 .chip:nth-child(5){animation-delay:.3s;animation-duration:4.6s}
 
-.fbrow{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 16px;margin-top:32px;max-width:380px}
+/* Small image card (observation in progress) */
+.obs{position:relative;width:min(100%,360px);margin:0 0 18px auto;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:var(--tint);display:grid;place-items:center;color:var(--blue);box-shadow:0 16px 40px rgba(12,94,158,.14);animation:float 5s ease-in-out infinite}
+.obs .ic{width:56px;height:56px;opacity:.45}
+.obs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.obs .tag{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.95);color:var(--ink);font-size:12px;font-weight:600;padding:6px 11px;border-radius:99px}
+.obs .tag i{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:dot 1.4s ease-in-out infinite}
+
+/* Action row under the hub list */
+.fbrow{display:grid;grid-template-columns:repeat(5,1fr);gap:16px 10px;margin-top:32px;max-width:480px}
 .fi{display:flex;flex-direction:column;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--blue-d);text-align:center}
-.fb{width:72px;height:72px;border-radius:50%;background:var(--tint);display:grid;place-items:center;animation:float 4.5s ease-in-out infinite}
+.fb{width:64px;height:64px;border-radius:50%;background:var(--tint);display:grid;place-items:center;animation:float 4.5s ease-in-out infinite}
 .fi:nth-child(2) .fb{animation-delay:.5s;animation-duration:4s}
 .fi:nth-child(3) .fb{animation-delay:1s;animation-duration:4.8s}
 .fi:nth-child(4) .fb{animation-delay:1.5s;animation-duration:4.2s}
 .fi:nth-child(5) .fb{animation-delay:.8s;animation-duration:4.6s}
-.fi:nth-child(6) .fb{animation-delay:1.9s;animation-duration:4.4s}
-.d{opacity:.25;animation:dot 1.4s ease-in-out infinite}
-.d2{animation-delay:.2s}
-.d3{animation-delay:.4s}
 @keyframes dot{0%,80%,100%{opacity:.25}40%{opacity:1}}
 
 /* Stats under the hero button */
@@ -180,12 +184,14 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .btn.lg{width:100%;text-align:center}
  .band{padding:48px 0 52px}.band .ph{aspect-ratio:4/3}
  .chips{justify-content:flex-start}
+ .obs{width:100%;margin-left:0}
  .stats{grid-template-columns:repeat(2,1fr);gap:22px 14px}
 }
 @media(max-width:560px){
  .tel .tx{display:none}
  .nav{gap:12px}
  .logo img{height:40px}
+ .fbrow{grid-template-columns:repeat(3,1fr)}
 }
 @media(prefers-reduced-motion:reduce){
  *{animation:none!important;transition:none!important}
@@ -193,7 +199,6 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .row:nth-of-type(1) .fill{--w:85%}.row:nth-of-type(2) .fill{--w:70%}.row:nth-of-type(3) .fill{--w:92%}.row:nth-of-type(4) .fill{--w:64%}
  .sent,.rise{opacity:1;transform:none}
  h1 .w{opacity:1;transform:none}.u::after{animation:none;transform:scaleX(1)}
- .d{opacity:1}
  .js .note .ln{opacity:1;transform:none}
  .js .reveal{opacity:1;transform:none}.js .reveal img{transform:none}
 }
@@ -255,6 +260,11 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
   </div>
 
   <div>
+   <figure class="obs">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+    <img src="images/observation.jpg" alt="An observer scoring a lesson while a teacher teaches a class" onerror="this.remove()">
+    <figcaption class="tag"><i></i>Observation in progress</figcaption>
+   </figure>
    <div class="chips" aria-hidden="true">
     <div class="chip"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
     <div class="chip"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4h6v3H9z"/><path d="M8.5 12.5l1.8 1.8 3.2-3.4M8.5 17h7"/></svg></div>
@@ -311,12 +321,11 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
     <li><strong>Equity-aware</strong> support for subgroup-targeted interventions</li>
    </ul>
    <div class="fbrow">
-    <div class="fi"><div class="fb"><svg width="46" height="46" viewBox="0 0 64 64" fill="none" stroke="#0c5e9e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12h44a4 4 0 014 4v24a4 4 0 01-4 4H30l-10 9v-9H10a4 4 0 01-4-4V16a4 4 0 014-4z"/><circle class="d" cx="21" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/><circle class="d d2" cx="32" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/><circle class="d d3" cx="43" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/></svg></div>Feedback</div>
-    <div class="fi"><div class="fb"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>Observe</div>
-    <div class="fi"><div class="fb"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div>Take action</div>
-    <div class="fi"><div class="fb"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></div>Adapt</div>
-    <div class="fi"><div class="fb"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div>Improve</div>
-    <div class="fi"><div class="fb"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></div>Outcomes</div>
+    <div class="fi"><div class="fb"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>Observe</div>
+    <div class="fi"><div class="fb"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></svg></div>Take action</div>
+    <div class="fi"><div class="fb"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></div>Adapt</div>
+    <div class="fi"><div class="fb"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div>Improve</div>
+    <div class="fi"><div class="fb"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-4.5"/></svg></div>Outcomes</div>
    </div>
   </div>
   <div>
@@ -346,7 +355,7 @@ const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll('.reveal,.note').forEach(el=>rv.observe(el));
 setTimeout(()=>document.querySelectorAll('.reveal,.note').forEach(el=>el.classList.add('in')),3000);
 
-/* Count-up for the stats (the final numbers are already in the HTML, so nothing breaks if this fails) */
+/* Count-up for the stats (final numbers are already in the HTML, so nothing breaks if this fails) */
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const so=new IntersectionObserver(es=>es.forEach(e=>{
  if(!e.isIntersecting)return;
