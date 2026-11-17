@@ -33,9 +33,15 @@ h1{font-size:clamp(36px,5.2vw,58px);line-height:1.08;letter-spacing:-.03em;font-
 .lead{margin:22px 0 32px;font-size:19px;color:var(--mute);max-width:46ch}
 
 /* Floating icons */
-.side{display:flex;flex-direction:column}
-.chip{align-self:flex-end;width:68px;height:68px;border-radius:50%;background:var(--tint);display:grid;place-items:center;margin-bottom:18px;animation:float 4s ease-in-out infinite}
-.fb{width:88px;height:88px;border-radius:50%;background:var(--tint);display:grid;place-items:center;margin-top:30px;animation:float 4.5s ease-in-out .6s infinite}
+.chips{display:flex;justify-content:flex-end;gap:12px;margin-bottom:18px}
+.chip{width:62px;height:62px;border-radius:50%;background:var(--tint);display:grid;place-items:center;animation:float 4s ease-in-out infinite}
+.chip:nth-child(2){animation-delay:.5s;animation-duration:4.4s}
+.chip:nth-child(3){animation-delay:1s;animation-duration:3.8s}
+.fbrow{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+.fb{width:76px;height:76px;border-radius:50%;background:var(--tint);display:grid;place-items:center;animation:float 4.5s ease-in-out infinite}
+.fb:nth-child(2){animation-delay:.6s;animation-duration:4s}
+.fb:nth-child(3){animation-delay:1.2s;animation-duration:4.8s}
+.fb:nth-child(4){animation-delay:1.8s;animation-duration:4.2s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .d{opacity:.25;animation:dot 1.4s ease-in-out infinite}
 .d2{animation-delay:.2s}
@@ -143,6 +149,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .hero{padding:32px 0 40px}
  .btn.lg{width:100%;text-align:center}
  .band{padding:48px 0 52px}.band .ph{aspect-ratio:4/3}
+ .chips{justify-content:flex-start}
 }
 @media(prefers-reduced-motion:reduce){
  *{animation:none!important;transition:none!important}
@@ -182,9 +189,11 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
    <a class="btn lg" href="DEMO_LINK" target="_blank" rel="noopener">Book a free demo</a>
   </div>
 
-  <div class="side">
-   <div class="chip" aria-hidden="true">
-    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4h6v3H9z"/><path d="M8.5 12.5l1.8 1.8 3.2-3.4M8.5 17h7"/></svg>
+  <div>
+   <div class="chips" aria-hidden="true">
+    <div class="chip"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4h6v3H9z"/><path d="M8.5 12.5l1.8 1.8 3.2-3.4M8.5 17h7"/></svg></div>
+    <div class="chip"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg></div>
+    <div class="chip"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></svg></div>
    </div>
    <div class="panel" aria-label="Example of a lesson being scored against a rubric">
     <h2>Grade 7 Math, Period 3</h2>
@@ -229,8 +238,11 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
     <li><strong>Auto-mapping</strong> to Common Core, NGSS and state standards</li>
     <li><strong>Equity-aware</strong> support for subgroup-targeted interventions</li>
    </ul>
-   <div class="fb" aria-hidden="true">
-    <svg width="56" height="56" viewBox="0 0 64 64" fill="none" stroke="#0c5e9e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h44a4 4 0 014 4v24a4 4 0 01-4 4H30l-10 9v-9H10a4 4 0 01-4-4V16a4 4 0 014-4z"/><circle class="d" cx="21" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/><circle class="d d2" cx="32" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/><circle class="d d3" cx="43" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/></svg>
+   <div class="fbrow" aria-hidden="true">
+    <div class="fb"><svg width="50" height="50" viewBox="0 0 64 64" fill="none" stroke="#0c5e9e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12h44a4 4 0 014 4v24a4 4 0 01-4 4H30l-10 9v-9H10a4 4 0 01-4-4V16a4 4 0 014-4z"/><circle class="d" cx="21" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/><circle class="d d2" cx="32" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/><circle class="d d3" cx="43" cy="28" r="2.8" fill="#0c5e9e" stroke="none"/></svg></div>
+    <div class="fb"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></div>
+    <div class="fb"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="#0c5e9e"/></svg></div>
+    <div class="fb"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#0c5e9e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16.5 14.2c2.6.2 4.5 2.2 4.5 5.3"/></svg></div>
    </div>
   </div>
   <div>
