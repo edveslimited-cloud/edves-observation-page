@@ -130,6 +130,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .row:nth-of-type(1) .fill{--w:85%}.row:nth-of-type(2) .fill{--w:70%}.row:nth-of-type(3) .fill{--w:92%}.row:nth-of-type(4) .fill{--w:64%}
  .sent,.rise{opacity:1;transform:none}
  h1 .w{opacity:1;transform:none}.u::after{animation:none;transform:scaleX(1)}
+  .reveal{opacity:1;transform:none}.reveal img{transform:none}
 }
 </style>
 </head>
@@ -219,6 +220,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 <script>
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
 document.querySelectorAll('.rise').forEach((el,i)=>{el.style.transitionDelay=(i*120)+'ms';io.observe(el)});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.querySelectorAll('.vbtn').forEach(b=>b.addEventListener('click',()=>{
  const v=document.createElement('video');
  v.src=b.dataset.video;v.controls=true;v.autoplay=true;v.playsInline=true;v.preload='auto';
