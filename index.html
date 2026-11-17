@@ -63,7 +63,11 @@ h1 .w:nth-child(6){animation-delay:.75s}
 .u::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:4px;border-radius:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;animation:draw .8s ease 1.3s forwards}
 @keyframes wordin{to{opacity:1;transform:none}}
 @keyframes draw{to{transform:scaleX(1)}}
-
+/* Note animation */
+.note .ln{display:block;opacity:0;transform:translateY(12px);animation:wordin .7s cubic-bezier(.2,.7,.2,1) forwards}
+.note .ln:nth-child(1){animation-delay:1.2s}
+.note .ln:nth-child(2){animation-delay:1.5s}
+.b{color:var(--blue)}
 /* Pedagogy Hub list */
 .hub-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
 .hub-list li{position:relative;padding-left:34px;font-size:18px;line-height:1.5;color:var(--ink)}
@@ -133,6 +137,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  .sent,.rise{opacity:1;transform:none}
  h1 .w{opacity:1;transform:none}.u::after{animation:none;transform:scaleX(1)}
  .js .reveal{opacity:1;transform:none}.js .reveal img{transform:none}
+ .note .ln{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -160,7 +165,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
    </div>
 
    <a class="btn lg" href="DEMO_LINK" target="_blank" rel="noopener">Book a free demo</a>
-   <p class="note">Bring your campus rubric.<br>Your observers stay in the lead.</p>
+  <p class="note"><span class="ln">Bring your <span class="b">campus rubric.</span></span><span class="ln">Your <span class="b">observers</span> stay in the lead.</span></p>
   </div>
 
   <div class="panel" aria-label="Example of a lesson being scored against a rubric">
