@@ -36,6 +36,7 @@ header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1
 .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 h1{font-size:clamp(36px,5.2vw,58px);line-height:1.08;letter-spacing:-.03em;font-weight:700}
 .lead{margin:22px 0 32px;font-size:19px;color:var(--mute);max-width:46ch}
+.hero-note{margin-top:14px;font-size:14px;color:var(--mute);max-width:46ch}
 
 /* Floating icons */
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
@@ -136,6 +137,25 @@ h2.t{font-size:clamp(28px,3.4vw,40px);letter-spacing:-.02em;line-height:1.15;mar
 .two p{color:var(--mute);font-size:18px;max-width:44ch}
 .two p + p{margin-top:14px}
 
+/* Pain points, how it works, FAQ */
+.pain h2.t,.how h2.t{max-width:24ch}
+.pain-list{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:24px 40px;margin-bottom:36px}
+.pain-list li{border-left:3px solid var(--blue);padding-left:20px;font-size:18px;line-height:1.5}
+.pain-close{font-size:20px;font-weight:600;color:var(--blue-d)}
+.steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;counter-reset:s}
+.steps li{counter-increment:s}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--blue);color:var(--white);font-weight:700;margin-bottom:14px}
+.steps h3{font-size:19px;margin-bottom:8px}
+.steps p{color:var(--mute)}
+.faq-list{max-width:760px}
+.faq-list details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq-list summary{cursor:pointer;font-weight:600;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";color:var(--blue);font-size:24px;line-height:1}
+.faq-list details[open] summary::after{content:"\2212"}
+.faq-list summary:focus-visible{outline:3px solid #7fb6e0;outline-offset:4px}
+.faq-list p{margin-top:10px;color:var(--mute);max-width:60ch}
+
 /* Images: a tinted icon shows first, a real photo covers it when present */
 .ph{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--tint);margin:0 0 18px;display:grid;place-items:center;color:var(--blue)}
 .ph svg{width:52px;height:52px;opacity:.45}
@@ -178,7 +198,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 }
 @media(max-width:820px){
  .hero .wrap,.two{grid-template-columns:1fr;gap:40px}
- .cols{grid-template-columns:1fr;gap:28px}
+ .cols,.steps,.pain-list{grid-template-columns:1fr;gap:28px}
  section{padding:60px 0}
  .hero{padding:24px 0 40px}
  .btn.lg{width:100%;text-align:center}
@@ -224,7 +244,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  <div class="wrap">
   <div>
    <h1><span class="w">Every</span> <span class="w b">classroom</span> <span class="w">observed</span> <span class="w">by</span> <span class="w">the</span> <span class="w b u">same standard.</span></h1>
-   <p class="lead">See how EDVES Classroom Observation works on your own rubric and learning standards.<br>Observers score the lesson, and teachers get feedback straight away.</p>
+   <p class="lead">Instructional coaches score the lesson on your own rubric and learning standards. Teachers get feedback before the next class, not next week.</p>
 
    <div class="vid">
     <button class="vbtn" type="button" data-video="edves-demo.mp4" ...>
@@ -234,6 +254,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
    </div>
 
    <a class="btn lg" href="DEMO_LINK" target="_blank" rel="noopener">Show me how it works</a>
+   <p class="hero-note">A 20-minute walkthrough on your own rubric and learning standards. Nothing to rewrite.</p>
 
    <div class="stats">
     <div class="stat">
@@ -262,7 +283,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
   <div>
    <figure class="obs">
     <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
-    <img src="images/observation.png" alt="An observer scoring a lesson while a teacher teaches a class" onerror="this.remove()">
+    <img src="images/observation.png" alt="An instructional coach scoring a lesson while a teacher teaches a class" onerror="this.remove()">
     <figcaption class="tag"><i></i>Observation in progress</figcaption>
    </figure>
    <div class="chips" aria-hidden="true">
@@ -288,6 +309,19 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  </div>
 </div>
 
+<section class="tint pain">
+ <div class="wrap">
+  <h2 class="t">Observation shouldn't feel like paperwork.</h2>
+  <ul class="pain-list">
+   <li>Feedback arrives days later, when the lesson is already forgotten.</li>
+   <li>Two instructional coaches score the same lesson two different ways.</li>
+   <li>Rubrics sit in binders and PDFs, and the data goes nowhere.</li>
+   <li>Teachers hear a verdict instead of help.</li>
+  </ul>
+  <p class="pain-close">There is a simpler way to run classroom walkthroughs.</p>
+ </div>
+</section>
+
 <div class="band">
  <div class="wrap">
   <div class="fl fl1" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
@@ -295,18 +329,29 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
   <div class="fl fl3" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div>
   <div class="fl fl4" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="#fff"/></svg></div>
 
-  <p class="note"><span class="ln">Bring your <span class="b">campus rubric.</span></span><span class="ln">Your <span class="b">observers</span> stay in the lead.</span></p>
+  <p class="note"><span class="ln">Bring your <span class="b">campus rubric.</span></span><span class="ln">Your <span class="b">instructional coaches</span> stay in the lead.</span></p>
   <figure class="ph reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg><img src="images/classroom.jpg" alt="Students and a teacher working together in a bright classroom" onerror="this.remove()"></figure>
  </div>
 </div>
+
+<section class="how">
+ <div class="wrap">
+  <h2 class="t">Three steps from lesson to feedback.</h2>
+  <ol class="steps">
+   <li><h3>Bring your rubric</h3><p>We set it up with your learning standards.</p></li>
+   <li><h3>Score the lesson</h3><p>Instructional coaches rate each indicator and add their own comments.</p></li>
+   <li><h3>Send the feedback</h3><p>Teachers get clear next steps while the lesson is fresh.</p></li>
+  </ol>
+ </div>
+</section>
 
 <section class="tint">
  <div class="wrap">
   <h2 class="t">Fair feedback, delivered fast.</h2>
   <div class="cols">
    <div class="rise"><figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6"/></svg><img src="images/principal.jpg" alt="A school principal reviewing observation feedback" loading="lazy" onerror="this.remove()"></figure><h3>Principals and assistant principals</h3><p>The same rubric in every classroom, so feedback does not depend on who walked in.</p></div>
-   <div class="rise"><figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/></svg><img src="images/observer.jpg" alt="An observer scoring a lesson on a tablet" loading="lazy" onerror="this.remove()"></figure><h3>Observers</h3><p>Score against your campus rubric and learning standards. Add your own comments any time.</p></div>
-   <div class="rise"><figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h6a3 3 0 013 3v12a2 2 0 00-2-2H4zM20 5h-6a3 3 0 00-3 3v12a2 2 0 012-2h7z"/></svg><img src="images/teacher.jpg" alt="A teacher at the board with students" loading="lazy" onerror="this.remove()"></figure><h3>Teachers</h3><p>Clear points to act on while the lesson is still fresh, ready for the next class.</p></div>
+   <div class="rise"><figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/></svg><img src="images/observer.jpg" alt="An instructional coach scoring a lesson on a tablet" loading="lazy" onerror="this.remove()"></figure><h3>Instructional coaches</h3><p>Spend your time in the classroom, not on forms. Score against your campus rubric and learning standards, and add your own comments any time.</p></div>
+   <div class="rise"><figure class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h6a3 3 0 013 3v12a2 2 0 00-2-2H4zM20 5h-6a3 3 0 00-3 3v12a2 2 0 012-2h7z"/></svg><img src="images/teacher.jpg" alt="A teacher at the board with students" loading="lazy" onerror="this.remove()"></figure><h3>Teachers</h3><p>Feedback that feels like support, with clear steps for the next lesson.</p></div>
   </div>
  </div>
 </section>
@@ -314,7 +359,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 <section>
  <div class="wrap two">
   <div>
-   <h2 class="t" style="margin:0 0 24px">From <span class="b">feedback</span> to better <span class="b">teaching.</span></h2>
+   <h2 class="t" style="margin:0 0 24px">Feedback is only half the job. <span class="b">Then what?</span></h2>
    <ul class="hub-list">
     <li><strong>Real-time adaptation</strong> of lesson flow and difficulty</li>
     <li><strong>Auto-mapping</strong> to Common Core, NGSS and state standards</li>
@@ -336,9 +381,29 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
  </div>
 </section>
 
+<section class="tint">
+ <div class="wrap">
+  <h2 class="t">Questions school leaders ask.</h2>
+  <div class="faq-list">
+   <details>
+    <summary>Can we use our own rubric?</summary>
+    <p>Yes. Instructional coaches score lessons against your campus observation rubric, mapped to your learning standards, so nothing has to be rewritten.</p>
+   </details>
+   <details>
+    <summary>When do teachers get their feedback?</summary>
+    <p>Straight away, while the lesson is still fresh, so they can use it in their next class.</p>
+   </details>
+   <details>
+    <summary>What happens after the feedback?</summary>
+    <p>Teachers can choose from a growing library of teaching patterns in the EDVES Pedagogy Hub.</p>
+   </details>
+  </div>
+ </div>
+</section>
+
 <div class="cta">
  <div class="wrap">
-  <h2>See it on your own rubric.</h2>
+  <h2>Bring one rubric. We'll show you the rest.</h2>
   <p>A short walkthrough using your observation rubric and learning standards.</p>
   <a class="btn inv lg" href="DEMO_LINK" target="_blank" rel="noopener">Book a free demo</a>
  </div>
