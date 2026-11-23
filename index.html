@@ -382,7 +382,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 
    <div class="vid">
     <button class="vbtn" type="button" data-video="edves-demo.mp4" aria-label="Play the EDVES Classroom Observation demo">
-     <img src="images/videoposter.png" alt="Preview of the EDVES demo: an instructional coach scoring a lesson" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='images/observation.png}">
+     <img src="images/VideoPoster.png" alt="Preview of the EDVES demo: an instructional coach scoring a lesson" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='images/observation.png'}">
      <span class="vshade"></span>
      <span class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
      <span class="vlabel">Watch the demo</span>
@@ -484,7 +484,10 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
    </ol>
    <p class="proc-end" style="margin-top:20px">Then score the lesson on your own rubric.</p>
   </div>
+  <div>
   <figure class="shot"><img src="images/observation-setup.png" alt="The EDVES screen for setting up an observation" onload="this.parentNode.classList.add('has')" onerror="this.remove()"><figcaption class="shot-ph">Add screenshot here: observation set-up screen<b>images/observation-setup.png</b></figcaption></figure>
+  <a class="btn inv" style="margin-top:22px" href="TRIAL_LINK" target="_blank" rel="noopener">Try it out now</a>
+  </div>
  </div>
 </section>
 
@@ -508,6 +511,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
   <div>
    <h2 class="t">Real-time observation reports</h2>
    <p>Understand your observation data at a glance with built-in analytics and reporting tools, all inside the platform.</p>
+   <a class="btn inv" style="margin-top:28px" href="DEMO_LINK" target="_blank" rel="noopener">See how it works</a>
   </div>
   <figure class="shot"><img src="images/reports-dashboard.png" alt="The EDVES observation reports dashboard" onload="this.parentNode.classList.add('has')" onerror="this.remove()"><figcaption class="shot-ph">Add screenshot here: reports dashboard<b>images/reports-dashboard.png</b></figcaption></figure>
  </div>
@@ -646,7 +650,7 @@ if(qsEl&&!reduce){
 document.querySelectorAll('.vbtn').forEach(b=>b.addEventListener('click',()=>{
  const v=document.createElement('video');
  v.src=b.dataset.video;v.controls=true;v.autoplay=true;v.playsInline=true;v.preload='auto';
-v.poster='images/videoposter.png';
+ v.poster='images/VideoPoster.png';
  b.parentElement.appendChild(v);b.remove();
 }));
 
