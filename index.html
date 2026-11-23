@@ -666,7 +666,7 @@ if(qsEl&&!reduce){
 document.querySelectorAll('.vbtn').forEach(b=>b.addEventListener('click',()=>{
  const v=document.createElement('video');
  v.src=b.dataset.video;v.controls=true;v.autoplay=true;v.playsInline=true;v.preload='auto';
- v.poster='images/VideoPoster.png';
+ v.poster='images/videoposter.png';
  b.parentElement.appendChild(v);b.remove();
 }));
 
