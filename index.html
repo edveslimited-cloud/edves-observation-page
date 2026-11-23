@@ -382,7 +382,7 @@ footer{padding:28px 0;font-size:14px;color:var(--mute);text-align:center}
 
    <div class="vid">
     <button class="vbtn" type="button" data-video="edves-demo.mp4" aria-label="Play the EDVES Classroom Observation demo">
-     <img src="images/video-poster.jpg" alt="Preview of the EDVES demo: an instructional coach scoring a lesson" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='images/observation.png'}">
+     <img src="images/videoposter.jpg" alt="Preview of the EDVES demo: an instructional coach scoring a lesson" onerror="if(this.dataset.f){this.remove()}else{this.dataset.f=1;this.src='images/observation.png'}">
      <span class="vshade"></span>
      <span class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
      <span class="vlabel">Watch the demo</span>
@@ -646,7 +646,7 @@ if(qsEl&&!reduce){
 document.querySelectorAll('.vbtn').forEach(b=>b.addEventListener('click',()=>{
  const v=document.createElement('video');
  v.src=b.dataset.video;v.controls=true;v.autoplay=true;v.playsInline=true;v.preload='auto';
- v.poster='images/video-poster.jpg';
+v.poster='images/videoposter.jpg';
  b.parentElement.appendChild(v);b.remove();
 }));
 
